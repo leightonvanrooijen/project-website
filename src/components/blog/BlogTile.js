@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme => ({
     [theme.breakpoints.down("xs")]: {
       height: 140,
     },
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up("sm")]: {
       height: "100%",
     },
     [theme.breakpoints.up("lg")]: {
@@ -56,7 +56,7 @@ export default function MediaCard(props) {
     <Card square={false} className={classes.root}>
       <CardActionArea component={Link} to={`/blog/${props.entry.id}`}>
         <Grid container >
-          <Grid item xs={12} md={9}>
+          <Grid item xs={12} sm={9}>
             <CardContent className={classes.content}>
               <Typography className={classes.heading} gutterBottom variant="h5" component="h2">
                 {props.entry.title}
@@ -66,7 +66,7 @@ export default function MediaCard(props) {
               </Typography>
             </CardContent>
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} sm={3}>
             <CardMedia
               className={classes.media}
               conponent="img"

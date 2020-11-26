@@ -36,18 +36,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const words = [
-  "web whizz",
-  "digital genius",
-  "programming pro",
-  "cracking coder",
-];
-let currentWord = words[0];
+
+
 
 export default function HeaderPhoto(props) {
   const classes = useStyles();
   const [timer, setTimer] = useState(0);
+  const [words, setWords] = useState([
+    "web whizz",
+    "digital genius",
+    "programming pro",
+    "cracking coder",
+  ])
   const [wordCount, setWordCount] = useState(0);
+  let currentWord = words[0];
 
   useEffect(() => {
     let intervalId;
