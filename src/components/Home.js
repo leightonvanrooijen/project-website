@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 
 const HOME_POST_QUERY = gql`
   query HOME_Post_Query {
-    entry(id: 117) {
+    entry(id: 5) {
       id
       ... on home_home_Entry {
         id

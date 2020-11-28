@@ -12,7 +12,7 @@ import { ApolloProvider } from '@apollo/client';
 
 
 const client = new ApolloClient({
-  uri: 'http://craftcms.test/api',
+  uri: 'http://45.63.26.23/api',
   cache: new InMemoryCache()
 });
 
