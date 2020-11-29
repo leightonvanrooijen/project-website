@@ -12,7 +12,7 @@ import { ApolloProvider } from '@apollo/client';
 
 
 const client = new ApolloClient({
-  uri: 'http://45.63.26.23/api',
+  uri: 'http://www.leightonv.co.nz:81/api',
   cache: new InMemoryCache()
 });
 

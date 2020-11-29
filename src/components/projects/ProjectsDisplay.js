@@ -1,6 +1,7 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import Grid from "@material-ui/core/Grid";
+import Loading from '../Loading'
 import ProjectTile from "./ProjectTile";
 import WebsiteGrid from '../WebsiteGrid'
 import { makeStyles } from '@material-ui/core/styles';
@@ -48,7 +49,7 @@ export default function BlogPostDisplay() {
 
   const { loading, error, data } = useQuery(BLOG_Tile_QUERY);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error :(</p>;
 
   const entries = mapBlogTiles(data);
