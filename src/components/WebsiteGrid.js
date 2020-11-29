@@ -12,9 +12,9 @@ const useStyles = makeStyles({
 
 export default function WebsiteGrid(props) {
   const classes = useStyles();
-
+  
   return (
-    <Grid container className={classes.root} xs={12}>
+    <Grid container className={classes.root} >
       <Grid container justify={props.align}  className={classes.container} spacing={1} xs={10} md={props.size || 8}>
         {props.children}
       </Grid>

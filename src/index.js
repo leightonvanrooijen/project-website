@@ -12,7 +12,7 @@ import { ApolloProvider } from '@apollo/client';
 
 
 const client = new ApolloClient({
-  uri: 'http://www.leightonv.co.nz:81/api',
+  uri: 'http://craftcms.test/api',
   cache: new InMemoryCache()
 });
 

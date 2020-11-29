@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 
 export default function Loading() {
   const classes = useStyles();
-
+  
   return (
     <div className={classes.loading}>
       <CircularProgress size={100} />

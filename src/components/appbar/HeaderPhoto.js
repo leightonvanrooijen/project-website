@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Mountians from "../../assets/images/img-home.jpg";
-
+import Grow from '@material-ui/core/Grow';
 
 const useStyles = makeStyles((theme) => ({
   imageContainer: {},
@@ -49,32 +49,34 @@ export default function HeaderPhoto(props) {
   const classes = useStyles();
   const [timer, setTimer] = useState(0);
   const [wordCount, setWordCount] = useState(0);
+  let checked = true
   
 
   useEffect(() => {
     let intervalId;
 
     intervalId = setInterval(() => {
-      setTimer(timer + 1);
+      setTimer(t => t + 1);
     }, 1000);
 
     if (wordCount >= words.length) {
-      setWordCount(0);
+      setWordCount(w => 0);
+      
     }
 
     if (timer % 3 === 0) {
       currentWord = words[wordCount];
-      setWordCount(wordCount + 1);
+      setWordCount(w => w + 1);
     }
 
     return () => clearInterval(intervalId);
   }, [timer]);
 
   return (
-    <Grid container xs={12} className={classes.imageContainer}>
+    <Grid container className={classes.imageContainer}>
       <Grid item xs={12}>
         <Paper square className={classes.imageGrid}>
-              <Typography className={classes.text}>I am a <span className={classes.colorText}>{currentWord}</span> !</Typography>
+              <Typography className={classes.text}>I am a <Grow in={checked}><span className={classes.colorText}>{currentWord}</span></Grow> !</Typography>
         </Paper>
       </Grid>
     </Grid>

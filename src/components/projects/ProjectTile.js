@@ -1,18 +1,17 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from "react-router-dom";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import BlogPost from '../blog/BlogPost';
 
 
 const useStyles = makeStyles({
   root: {
+    height: '100%',
+    width: 'flex',
     
-    height: '100%'
 
   },
   media: {
@@ -33,17 +32,15 @@ const getImg = (entry) => {
         title = image.title
         break
 
-
       default:
         return null
     }
-    
+    return null
   })
 }
 
 let imageUrl = ''
 let title = ''
-
 
 export default function ProjectTile(props) {
   const classes = useStyles();

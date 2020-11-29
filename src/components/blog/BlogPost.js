@@ -6,11 +6,11 @@ import WebsiteGrid from "../WebsiteGrid";
 import { makeStyles } from "@material-ui/core/styles";
 import ReactHtmlParser from "react-html-parser";
 
-
 const useStyles = makeStyles({
   blogText: {
     "& img": {
-      maxHeight: '40vh'
+      width: '95%',
+     // maxHeight: "40vh",
     },
     overflow: "hidden",
   },
@@ -50,8 +50,9 @@ const getText = (block) => {
         break;
 
       default:
-        return;
+        return null;
     }
+    return null;
   });
 };
 
@@ -61,7 +62,7 @@ export default function BlogPost(props, { match }) {
   const classes = useStyles();
 
   const { loading, error, data } = useQuery(BLOG_POST_QUERY, {
-    variables: { id: props.match.params.id || 88},
+    variables: { id: props.match.params.id || 88 },
   });
 
   if (loading) return <p>Loading...</p>;

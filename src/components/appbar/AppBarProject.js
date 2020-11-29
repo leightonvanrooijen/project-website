@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import MobileDrawer from "./MobileDrawer";
+import { Link } from "react-router-dom";
+import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
 import Logo from "../../assets/images/LogoLeighton.png";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     marginRight: "auto",
-    height: '40px'
+    height: "40px",
   },
 }));
 
@@ -50,7 +51,10 @@ export default function WebAppBar(props) {
         <AppBar color="#ffffff" className={classes.appBar}>
           <Toolbar className={classes.toolBar}>
             <div className={classes.contentContainer}>
-              <img className={classes.title} src={Logo} />
+              <IconButton className={classes.title} component={Link}
+                to={"/projects"} >
+              <img className={classes.title} alt="logo" src={Logo} />
+              </IconButton>
               <MobileDrawer />
             </div>
           </Toolbar>

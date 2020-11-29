@@ -42,6 +42,7 @@ const getImg = (entry) => {
       default:
         return null;
     }
+    return null;
   });
 };
 
