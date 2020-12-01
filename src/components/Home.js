@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import WebsiteGrid from "./WebsiteGrid";
 import { makeStyles } from "@material-ui/core/styles";
-import Loading from '../Loading'
+import Loading from './Loading'
 import Ear from "../assets/images/ear.png";
 
 const useStyles = makeStyles({
