@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import WebsiteGrid from "./WebsiteGrid";
 import { makeStyles } from "@material-ui/core/styles";
+import Loading from '../Loading'
 import Ear from "../assets/images/ear.png";
 
 const useStyles = makeStyles({
@@ -63,7 +64,7 @@ export default function BlogPostDisplay() {
 
   const { loading, error, data } = useQuery(HOME_POST_QUERY);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error :(</p>;
 
   getText(data.entry.homeContent);
