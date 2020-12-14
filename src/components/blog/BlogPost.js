@@ -60,7 +60,7 @@ let textDisplay = "";
 
 export default function BlogPost(props, { match }) {
   const classes = useStyles();
-
+  console.log(props.match)
   const { loading, error, data } = useQuery(BLOG_POST_QUERY, {
     variables: { id: props.match.params.id || 88 },
   });

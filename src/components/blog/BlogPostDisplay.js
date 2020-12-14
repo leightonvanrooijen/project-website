@@ -12,6 +12,7 @@ query Blog_Tile_Query {
       id
       title
       summary
+      slug
       featureImage {
         url
         title

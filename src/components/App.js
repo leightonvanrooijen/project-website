@@ -1,5 +1,6 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Switch, Route, useLocation } from "react-router-dom";
+import { useAnalytics } from "use-analytics";
 
 import AppBarProject from "./appbar/AppBarProject";
 import HeaderPhoto from "./appbar/HeaderPhoto";
@@ -10,20 +11,21 @@ import BlogPost from "./blog/BlogPost";
 import Contact from "./Contact";
 
 
-function App() {
+export default function App() {
+
   return (
     <div>
-        <AppBarProject />
-        <HeaderPhoto />
-        <Switch>
+      <AppBarProject />
+      <HeaderPhoto />
+      <Switch>
         <Route path="/" exact component={Home} />
-          <Route path="/blog" exact component={BlogPostDisplay} />
-          <Route path="/blog/:id" exact component={BlogPost} />
-          <Route path="/projects" component={ProjectsDisplay} />
-          <Route path="/contact" component={Contact} />
-        </Switch>
+        <Route path="/blog" exact component={BlogPostDisplay} />
+        <Route path="/blog/:id" exact component={BlogPost} />
+        <Route path="/projects" component={ProjectsDisplay} />
+        <Route path="/contact" component={Contact} />
+      </Switch>
     </div>
   );
 }
 
-export default App;
+// export default App;

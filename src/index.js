@@ -3,10 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
-
-import { BrowserRouter as Router } from "react-router-dom";
-import ReactGA from 'react-ga';
-import { createBrowserHistory } from 'history';
+import { BrowserRouter as Router, browserHistory } from "react-router-dom";
 
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
@@ -19,24 +16,15 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-var history = createBrowserHistory();
-
-ReactGA.initialize('G-26C3YTHET2');
-ReactGA.pageview(window.location.pathname + window.location.search);
-
-history.listen((location) => {
-  window.ga('set', 'page', location.pathname + location.search);
-  window.ga('send', 'pageview');
-});
-
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <ThemeProvider theme={theme}>
-      <Router history={history}>
-        <App />
-      </Router>
-    </ThemeProvider>
-  </ApolloProvider>,
+
+    <ApolloProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <Router browserHistory>
+          <App />
+        </Router>
+      </ThemeProvider>
+    </ApolloProvider>,
 
   document.getElementById("root")
 );

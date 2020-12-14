@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     width: "auto",
   },
   hideDesktopButtons: {
-    marginLeft: '2rem',
+    marginLeft: "2rem",
     [theme.breakpoints.down("xs")]: {
       display: "none",
     },
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   linkButton: {
     fontWeight: 700,
-    textTransform: 'none',
+    textTransform: "none",
   },
 }));
 
@@ -51,7 +51,7 @@ const barButtons = [
   { text: "Contact", icon: <PermContactCalendarIcon />, route: "/contact" },
 ];
 
-export default function SwipeableTemporaryDrawer(props) {
+export default function MobileDrawer(props) {
   const classes = useStyles();
   // Controlls drawer positions. Change to true to activate
   const activePosition = props.position || "right";
@@ -83,20 +83,21 @@ export default function SwipeableTemporaryDrawer(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {barButtons.map((barButton) => (
-          <ListItem
-            button
-            color="inherit"
-            component={Link}
-            to={barButton.route}
-            key={barButton.text}
-          >
-            <ListItemIcon>{barButton.icon}</ListItemIcon>
-            <ListItemText
-              primaryTypographyProps={"h2"}
-              primary={barButton.text}
-            />
-          </ListItem>
+        {barButtons.map((barButton, index) => (
+          <React.Fragment key={barButton}>
+            <ListItem
+              button
+              color="inherit"
+              component={Link}
+              to={barButton.route}
+            >
+              <ListItemIcon>{barButton.icon}</ListItemIcon>
+              <ListItemText
+                primaryTypographyProps={"h2"}
+                primary={barButton.text}
+              />
+            </ListItem>
+          </React.Fragment>
         ))}
       </List>
       <Divider />

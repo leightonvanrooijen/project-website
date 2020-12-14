@@ -1,7 +1,7 @@
 import React from "react";
 import MobileDrawer from "./MobileDrawer";
 import { Link } from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Logo from "../../assets/images/LogoLeighton.png";
 import AppBar from "@material-ui/core/AppBar";
@@ -51,10 +51,10 @@ export default function WebAppBar(props) {
         <AppBar color="#ffffff" className={classes.appBar}>
           <Toolbar className={classes.toolBar}>
             <div className={classes.contentContainer}>
-              <IconButton className={classes.title} component={Link}
-                to={"/projects"} >
+              <Button className={classes.title} component={Link}
+                to={"/"} >
               <img className={classes.title} alt="logo" src={Logo} />
-              </IconButton>
+              </Button>
               <MobileDrawer />
             </div>
           </Toolbar>
