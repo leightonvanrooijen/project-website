@@ -25,7 +25,7 @@ const BLOG_Tile_QUERY = gql`
 const mapBlogTiles = (data) =>
   data.entries.map((entry) =>
     entry.title ? (
-      <Grid item xs={10} sm={6} md={4} lg={3} xl={3}>
+      <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
         <ProjectTile key={entry.id} entry={entry} />
       </Grid>
     ) : null

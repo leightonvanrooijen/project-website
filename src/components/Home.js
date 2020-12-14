@@ -88,7 +88,7 @@ export default function BlogPostDisplay() {
         {ReactHtmlParser(column1)}
         </Typography>
       </Grid>
-      <Grid xs={12} md={6}>
+      <Grid xs={12} lg={6}>
         <Typography variant="body1">
         {ReactHtmlParser(column2)}
         </Typography>

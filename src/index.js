@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, browserHistory } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store"
 
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
@@ -17,14 +19,15 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-
+  <Provider store={store}>
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
-        <Router browserHistory>
+        <Router history={browserHistory} >
           <App />
         </Router>
       </ThemeProvider>
-    </ApolloProvider>,
+    </ApolloProvider>
+  </Provider>,
 
   document.getElementById("root")
 );

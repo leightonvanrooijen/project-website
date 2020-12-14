@@ -20,7 +20,6 @@ query Blog_Tile_Query {
     }
   }
 }
- 
 `;
 
 const mapBlogTiles = (data) =>
