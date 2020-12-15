@@ -58,6 +58,14 @@ export default function ContactBackdrop() {
             <GitHubIcon className={classes.icon} />
           </IconButton>
         </Grid>
+        <Grid className={classes.gridItem} item xs={6} md={3}>
+          <IconButton
+            href="https://github.com/leightonvanrooijen"
+            target="_blank"
+          >
+            <GitHubIcon className={classes.icon} />
+          </IconButton>
+        </Grid>
       </WebsiteGrid>
     </React.Fragment>
   );
