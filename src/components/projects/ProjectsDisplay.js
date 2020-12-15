@@ -1,9 +1,11 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
-import Grid from "@material-ui/core/Grid";
+import HeaderPhoto from "../appbar/HeaderPhoto";
 import Loading from "../Loading";
 import ProjectTile from "./ProjectTile";
 import WebsiteGrid from "../WebsiteGrid";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 
 const BLOG_Tile_QUERY = gql`
   query Blog_Tile_Query {
@@ -32,8 +34,6 @@ const mapBlogTiles = (data) =>
   );
 
 export default function BlogPostDisplay() {
-
-
   const { loading, error, data } = useQuery(BLOG_Tile_QUERY);
 
   if (loading) return <Loading />;
@@ -41,5 +41,7 @@ export default function BlogPostDisplay() {
 
   const entries = mapBlogTiles(data);
 
-  return <WebsiteGrid >{entries}</WebsiteGrid>;
+  return (
+      <WebsiteGrid>{entries}</WebsiteGrid>
+  );
 }

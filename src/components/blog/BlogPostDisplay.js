@@ -1,5 +1,6 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
+import HeaderPhoto from "../appbar/HeaderPhoto";
 import WebsiteGrid from '../WebsiteGrid'
 import Loading from '../Loading'
 import Grid from "@material-ui/core/Grid";
@@ -42,7 +43,6 @@ export default function BlogPostDisplay() {
   const entries = mapBlogTiles(data);
 
   return (
-
       <WebsiteGrid align={'center'}>{entries}</WebsiteGrid>
   );
 }

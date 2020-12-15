@@ -1,5 +1,6 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
+import HeaderPhoto from "./appbar/HeaderPhoto";
 import ReactHtmlParser from "react-html-parser";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -59,7 +60,7 @@ let text = "";
 let text2 = "";
 let column1 = "";
 let column2 = "";
-export default function BlogPostDisplay() {
+export default function HomeDisplay() {
   const classes = useStyles();
 
   const { loading, error, data } = useQuery(HOME_POST_QUERY);
