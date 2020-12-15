@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
-import { useAnalytics } from "use-analytics";
 
 import AppBarProject from "./appbar/AppBarProject";
 import HeaderPhoto from "./appbar/HeaderPhoto";
