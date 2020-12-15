@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Switch, Route, useLocation } from "react-router-dom";
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 
 import AppBarProject from "./appbar/AppBarProject";
 import HomePage from "./HomePage";

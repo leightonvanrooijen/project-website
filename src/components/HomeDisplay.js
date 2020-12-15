@@ -1,6 +1,5 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
-import HeaderPhoto from "./appbar/HeaderPhoto";
 import ReactHtmlParser from "react-html-parser";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";

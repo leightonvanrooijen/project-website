@@ -1,11 +1,9 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
-import HeaderPhoto from "../appbar/HeaderPhoto";
 import Loading from "../Loading";
 import ProjectTile from "./ProjectTile";
 import WebsiteGrid from "../WebsiteGrid";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
 
 const BLOG_Tile_QUERY = gql`
   query Blog_Tile_Query {

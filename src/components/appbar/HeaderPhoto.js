@@ -51,7 +51,6 @@ export default function HeaderPhoto(props) {
   const [timer, setTimer] = useState(0);
   const [wordCount, setWordCount] = useState(0);
   let checked = true
-  
 
   useEffect(() => {
     let intervalId;
@@ -69,8 +68,9 @@ export default function HeaderPhoto(props) {
       currentWord = words[wordCount];
       setWordCount(w => w + 1);
     }
-
+    
     return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timer]);
 
   return (
