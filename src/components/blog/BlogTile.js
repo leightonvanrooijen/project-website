@@ -55,7 +55,7 @@ export default function MediaCard(props) {
 
   return (
     <Card square={false} className={classes.root}>
-      <CardActionArea component={Link} to={`/blog/${props.entry.id}`}>
+      <CardActionArea component={Link} to={`/blog/${props.entry.slug}`}>
         <Grid container >
           <Grid item xs={12} sm={9}>
             <CardContent className={classes.content}>
