@@ -13,6 +13,7 @@ const useStyles = makeStyles({
       // maxHeight: "40vh",
     },
     "& pre": {
+      overflow: 'scroll',
       backgroundColor: "#E8E8E8",
       padding: '20px',
       borderRadius: '15px'
