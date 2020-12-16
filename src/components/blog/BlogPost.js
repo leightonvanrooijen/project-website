@@ -9,8 +9,13 @@ import ReactHtmlParser from "react-html-parser";
 const useStyles = makeStyles({
   blogText: {
     "& img": {
-      width: '95%',
-     // maxHeight: "40vh",
+      width: "95%",
+      // maxHeight: "40vh",
+    },
+    "& pre": {
+      backgroundColor: "#E8E8E8",
+      padding: '20px',
+      borderRadius: '15px'
     },
     overflow: "hidden",
   },
@@ -60,7 +65,7 @@ let textDisplay = "";
 
 export default function BlogPost(props, { match }) {
   const classes = useStyles();
-  console.log(props.match)
+  console.log(props.match);
   const { loading, error, data } = useQuery(BLOG_POST_QUERY, {
     variables: { id: props.match.params.id || 88 },
   });
