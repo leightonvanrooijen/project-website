@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginRight: "auto",
     height: "40px",
+    alignSelf: 'center'
   },
 }));
 

@@ -22,7 +22,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   list: {
-    width: 250,
+    width: "80vw",
   },
   fullList: {
     width: "auto",
@@ -54,7 +54,7 @@ const barButtons = [
 export default function MobileDrawer(props) {
   const classes = useStyles();
   // Controlls drawer positions. Change to true to activate
-  const activePosition = props.position || "right";
+  const activePosition = props.position || "top";
   const [state, setState] = React.useState({
     top: false,
     left: false,
