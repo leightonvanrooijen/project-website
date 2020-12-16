@@ -24,7 +24,7 @@ export default function ContactBackdrop() {
 
   return (
     <React.Fragment>
-      <HeaderPhoto />
+      <HeaderPhoto start={"Have a"} punch={["yarn", "stalk", "gander"]}/>
       <WebsiteGrid align={"center"}>
         <Grid className={classes.gridItem} item xs={6} md={3}>
           <IconButton

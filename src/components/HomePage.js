@@ -5,7 +5,7 @@ import HomeDisplay from "./HomeDisplay";
 export default function HomePage() {
   return (
     <React.Fragment>
-      <HeaderPhoto />
+      <HeaderPhoto start={"I am a"} punch={["web whizz", "cracking coder", "programming pro", "digital genius"]}/>
       <HomeDisplay />
     </React.Fragment>
   );

@@ -5,7 +5,7 @@ import ProjectsDisplay from "./ProjectsDisplay";
 export default function ProjectsPage() {
   return (
     <React.Fragment>
-      <HeaderPhoto />
+      <HeaderPhoto start={"I built a"} punch={["calculator", "website", "drum machine", "timer"]}/>
       <ProjectsDisplay />
     </React.Fragment>
   );

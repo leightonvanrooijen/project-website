@@ -38,18 +38,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
-let words = [
-  "web whizz",
-  "digital genius",
-  "programming pro",
-  "cracking coder",
-]
-let currentWord = words[0];
 export default function HeaderPhoto(props) {
   const classes = useStyles();
   const [timer, setTimer] = useState(0);
   const [wordCount, setWordCount] = useState(0);
+  const [words, setWords] = useState(props.punch || ["hi"])
+  const [currentWord, setCurrentWord] = useState(0)
+
   let checked = true
 
   useEffect(() => {
@@ -65,7 +60,7 @@ export default function HeaderPhoto(props) {
     }
 
     if (timer % 3 === 0) {
-      currentWord = words[wordCount];
+      setCurrentWord(words[wordCount]);
       setWordCount(w => w + 1);
     }
     
@@ -77,7 +72,7 @@ export default function HeaderPhoto(props) {
     <Grid container className={classes.imageContainer}>
       <Grid item xs={12}>
         <Paper square className={classes.imageGrid}>
-              <Typography className={classes.text}>I am a <Grow in={checked}><span className={classes.colorText}>{currentWord}</span></Grow> !</Typography>
+              <Typography className={classes.text}>{props.start} <Grow in={checked}><span className={classes.colorText}>{currentWord}</span></Grow> !</Typography>
         </Paper>
       </Grid>
     </Grid>
