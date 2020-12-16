@@ -20,11 +20,14 @@ const useStyles = makeStyles({
     },
     overflow: "hidden",
   },
+  heading: {
+    marginBottom: '1em',
+  }
 });
 
 const BLOG_POST_QUERY = gql`
-  query Blog_Post_Query($id: [QueryArgument]) {
-    entry(id: $id) {
+  query Blog_Post_Query($slug: [String]) {
+    entry(slug: $slug) {
       title
       id
       postDate
@@ -68,7 +71,7 @@ export default function BlogPost(props, { match }) {
   const classes = useStyles();
   console.log(props.match);
   const { loading, error, data } = useQuery(BLOG_POST_QUERY, {
-    variables: { id: props.match.params.id || 88 },
+    variables: { slug: props.match.params.id || 88 },
   });
 
   if (loading) return <p>Loading...</p>;
@@ -78,7 +81,7 @@ export default function BlogPost(props, { match }) {
   return (
     <WebsiteGrid size={6}>
       <Grid item xs={12}>
-        <Typography variant="h3">{data.entry.title}</Typography>
+        <Typography className={classes.heading} variant="h3">{data.entry.title}</Typography>
       </Grid>
       <Grid item xs={12}>
         <Typography variant="subtitle1">
