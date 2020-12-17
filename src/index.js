@@ -13,7 +13,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "http://craft.leightonv.co.nz/api",
+  uri: "https://craft.leightonv.co.nz/api",
   cache: new InMemoryCache(),
 });
 
