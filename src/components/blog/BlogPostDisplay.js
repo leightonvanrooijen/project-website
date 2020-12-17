@@ -40,7 +40,7 @@ export default function BlogPostDisplay() {
   if (error) return <p>Error :(</p>;
 
   const entries = mapBlogTiles(data);
-
+  
   return (
       <WebsiteGrid align={'center'}>{entries}</WebsiteGrid>
   );

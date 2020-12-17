@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Mountians from "../../assets/images/img-home.jpg";
+import Mountians from "../../assets/img-home.jpg";
 import Grow from '@material-ui/core/Grow';
 
 const useStyles = makeStyles((theme) => ({

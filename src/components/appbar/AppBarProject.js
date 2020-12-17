@@ -3,7 +3,7 @@ import MobileDrawer from "./MobileDrawer";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import Logo from "../../assets/images/LogoLeighton.png";
+import Logo from "../../assets/LogoLeighton.png";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import CssBaseline from "@material-ui/core/CssBaseline";

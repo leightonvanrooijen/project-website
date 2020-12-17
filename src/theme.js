@@ -1,10 +1,16 @@
-import { createMuiTheme } from '@material-ui/core/styles'
-import 'fontsource-roboto';
+import { createMuiTheme } from "@material-ui/core/styles";
+import "fontsource-roboto";
 
 const theme = createMuiTheme({
-    typography: {
-        fontFamily: 'Roboto',
-      },
-})
+  typography: {
+    blog: {
+      fontFamily: "Roboto",
+      fontWeight: 400,
+      fontSize: "20rem",
+      lineHeight: 1.5,
+      letterSpacing: "0.00938em",
+    },
+  },
+});
 
-export default theme
+export default theme;
