@@ -42,7 +42,7 @@ export default function HeaderPhoto(props) {
   const classes = useStyles();
   const [timer, setTimer] = useState(0);
   const [wordCount, setWordCount] = useState(0);
-  const [words, setWords] = useState(props.punch || ["hi"])
+  const words = props.punch
   const [currentWord, setCurrentWord] = useState(0)
 
   let checked = true
