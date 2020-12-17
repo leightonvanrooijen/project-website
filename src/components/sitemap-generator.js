@@ -55,7 +55,7 @@ function generateSitemap() {
   };
   return new Sitemap(router())
     .applyParams(pathsConfig)
-    .build("http://www.leightonv.co.nz")
+    .build("https://www.leightonv.co.nz")
     .save("./public/sitemap.xml");
 }
 
