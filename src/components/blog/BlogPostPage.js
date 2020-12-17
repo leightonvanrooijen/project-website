@@ -5,7 +5,7 @@ import BlogPostDisplay from "./BlogPostDisplay";
 export default function BlogPostPage() {
   return (
     <React.Fragment>
-      <HeaderPhoto start={"Keep yourself"} punch={["updated", "informed", "educated"]}/>
+      <HeaderPhoto start={"Keep yourself"} punch={["up to date", "well informed", "super educated"]}/>
       <BlogPostDisplay />
     </React.Fragment>
   );
