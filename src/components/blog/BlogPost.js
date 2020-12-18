@@ -1,28 +1,37 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
+import ReactHtmlParser from "react-html-parser";
+import Loading from "../Loading";
+import WebsiteGrid from "../WebsiteGrid";
+import getImg from "./getBlogImage";
+
+import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import WebsiteGrid from "../WebsiteGrid";
-import { makeStyles } from "@material-ui/core/styles";
-import ReactHtmlParser from "react-html-parser";
 
 const useStyles = makeStyles({
+  img: {
+    width: "100%"
+  },
+
   blogText: {
     "& img": {
-      width: "95%",
-      // maxHeight: "40vh",
+      width: "100%",
+    },
+    "& figure": {
+      margin: '0px'
     },
     "& pre": {
-      overflow: 'scroll',
+      overflow: "scroll",
       backgroundColor: "#E8E8E8",
-      padding: '20px',
-      borderRadius: '15px'
+      padding: "20px",
+      borderRadius: "15px",
     },
     overflow: "hidden",
   },
-  heading: {
-    marginBottom: '1em',
-  }
+  dateUploaded: {
+    marginBottom: "2em",
+  },
 });
 
 const BLOG_POST_QUERY = gql`
@@ -40,7 +49,10 @@ const BLOG_POST_QUERY = gql`
       ... on blog_blog_Entry {
         id
         summary
-
+        featureImage {
+          url
+          title
+        }
         postContent {
           ... on postContent_text_BlockType {
             text
@@ -69,27 +81,31 @@ let textDisplay = "";
 
 export default function BlogPost(props, { match }) {
   const classes = useStyles();
-  console.log(props.match);
   const { loading, error, data } = useQuery(BLOG_POST_QUERY, {
     variables: { slug: props.match.params.id || 88 },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error :(</p>;
 
   getText(data.entry.postContent);
   return (
     <WebsiteGrid size={6}>
       <Grid item xs={12}>
-        <Typography className={classes.heading} variant="h3">{data.entry.title}</Typography>
+        <Typography className={classes.heading} variant="h3">
+          {data.entry.title}
+        </Typography>
       </Grid>
+      {/* <Grid item xs={12}>
+        <img className={classes.img}src={data.entry.featureImage[0].url} alt={data.entry.featureImage[0].title}/>
+      </Grid> */}
       <Grid item xs={12}>
         <Typography variant="subtitle1">
           Author: {data.entry.author.fullName}
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant="body1">Date: {data.entry.dateUpdated}</Typography>
+        <Typography className={classes.dateUploaded} variant="body1">Date: {data.entry.dateUpdated}</Typography>
       </Grid>
       <Grid item xs={12}>
         <Typography className={classes.blogText} variant="body1">
