@@ -19,11 +19,11 @@ function getData() {
   })
     .then((res) => res.json())
     .then((res) => {
-      logdata(res.data);
+      logData(res.data);
     });
 }
 
-function logdata(data) {
+function logData(data) {
   data.entries.map((entry) => {
     entry.slug ? slugs.push(entry.slug) : null;
   });
