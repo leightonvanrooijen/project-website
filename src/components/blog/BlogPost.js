@@ -3,7 +3,6 @@ import { gql, useQuery } from "@apollo/client";
 import ReactHtmlParser from "react-html-parser";
 import Loading from "../Loading";
 import WebsiteGrid from "../WebsiteGrid";
-import getImg from "./getBlogImage";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
