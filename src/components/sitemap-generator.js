@@ -3,7 +3,7 @@ require("isomorphic-fetch");
 let slugs = [];
 
 function getData() {
-  fetch("http://www.leightonv.co.nz:81/api", {
+  fetch("https://craft.leightonv.co.nz/api", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
