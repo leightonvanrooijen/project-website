@@ -5,7 +5,6 @@ import HomePage from "./HomePage";
 import BlogPostPage from "./blog/BlogPostPage";
 import ProjectsPage from "./projects/ProjectsPage";
 import BlogPost from "./blog/BlogPost";
-import Contact from "./Contact";
 
 function Routes() {
   return (
@@ -14,7 +13,6 @@ function Routes() {
       <Route path="/blog" exact component={BlogPostPage} />
       <Route path="/blog/:id" exact component={BlogPost} />
       <Route path="/projects" component={ProjectsPage} />
-      <Route path="/contact" component={Contact} />
     </Switch>
   );
 }
