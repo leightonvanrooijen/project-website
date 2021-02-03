@@ -24,8 +24,14 @@ import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
 import MenuList from "@material-ui/core/MenuList";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import EmailIcon from "@material-ui/icons/Email";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import red from "@material-ui/core/colors/red";
+import Tooltip from "@material-ui/core/Tooltip";
 
-import ContactMenu from "./ContactMenu";
 // Props: position={'left' || 'top' || 'right' || 'bottom'} default is 'right'
 //  size={}
 
@@ -50,6 +56,13 @@ const useStyles = makeStyles((theme) => ({
   linkButton: {
     fontWeight: 700,
     textTransform: "none",
+  },
+  contactList: {
+    display: "flex",
+    alignItems: "center",
+  },
+  linkButtonInsta: {
+    color: red[500],
   },
 }));
 
@@ -117,10 +130,7 @@ export default function MobileDrawer(props) {
     setState({ ...state, [anchor]: open });
   };
 
-  const handleOpen = () => {
-    setContactOpen(!contactOpen);
-    console.log(contactOpen);
-  };
+
 
   const buttonList = (anchor) => (
     <div
@@ -132,17 +142,104 @@ export default function MobileDrawer(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {barButtons.map((barButton, index) => (
-          <React.Fragment key={barButton}>
-            <ListItem button color="inherit" component={Link} to={barButton.route}>
-              <ListItemIcon>{barButton.icon}</ListItemIcon>
-              <ListItemText primaryTypographyProps={"h2"} primary={barButton.text} />
-            </ListItem>
-          </React.Fragment>
-        ))}
+        {barButtons.map((barButton, index) =>
+          barButton.text === "Contact" ? (
+            console.log("hi")
+          ) : (
+            <React.Fragment key={barButton}>
+              <ListItem button color="inherit" component={Link} to={barButton.route}>
+                <ListItemIcon>{barButton.icon}</ListItemIcon>
+                <ListItemText primaryTypographyProps={"h2"} primary={barButton.text} />
+              </ListItem>
+            </React.Fragment>
+          )
+        )}
       </List>
       <Divider />
     </div>
+  );
+
+  const contactButton = (
+    <>
+      <Button
+        className={classes.hideDesktopButtons}
+        ref={anchorRef}
+        aria-controls={open ? "menu-list-grow" : undefined}
+        aria-haspopup="true"
+        endIcon={<ExpandMoreIcon />}
+        onClick={handleToggle}
+      >
+        <Typography className={classes.linkButton}>Contact</Typography>
+      </Button>
+      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+            style={{ transformOrigin: placement === "bottom" ? "center top" : "center bottom" }}
+          >
+            <Paper>
+              <ClickAwayListener onClickAway={handleClose}>
+                <MenuList
+                  className={classes.contactList}
+                  autoFocusItem={open}
+                  id="menu-list-grow"
+                  onKeyDown={handleListKeyDown}
+                >
+                  <MenuItem onClick={handleClose}>
+                    <MuiLink
+                      color="textPrimary"
+                      underline="none"
+                      href="https://www.linkedin.com/in/leightonvanrooijen"
+                      target="_blank"
+                    >
+                      <Tooltip title="LinkedIn">
+                        <LinkedInIcon color="primary" />
+                      </Tooltip>
+                    </MuiLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <MuiLink
+                      color="textSecondary"
+                      underline="none"
+                      href="https://github.com/leightonvanrooijen"
+                      target="_blank"
+                    >
+                      <Tooltip title="Github">
+                        <GitHubIcon color="textSecondary" />
+                      </Tooltip>
+                    </MuiLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <MuiLink
+                      className={classes.linkButtonInsta}
+                      underline="none"
+                      href="mailto: leightonvanrooijen@gmail.com"
+                      target="_blank"
+                    >
+                      <Tooltip title="Email">
+                        <EmailIcon />
+                      </Tooltip>
+                    </MuiLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <MuiLink
+                      color="secondary"
+                      underline="none"
+                      href="https://www.instagram.com/leighton_van_rooijen/"
+                      target="_blank"
+                    >
+                      <Tooltip title="Instagram">
+                        <InstagramIcon />
+                      </Tooltip>
+                    </MuiLink>
+                  </MenuItem>
+                </MenuList>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
+    </>
   );
 
   return (
@@ -150,72 +247,7 @@ export default function MobileDrawer(props) {
       <div>
         {barButtons.map((barButton) =>
           barButton.text === "Contact" ? (
-            <>
-              <Button
-                className={classes.hideDesktopButtons}
-                ref={anchorRef}
-                aria-controls={open ? "menu-list-grow" : undefined}
-                aria-haspopup="true"
-                onClick={handleToggle}
-              >
-                <Typography className={classes.linkButton}>{barButton.text}</Typography>
-              </Button>
-              <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-                {({ TransitionProps, placement }) => (
-                  <Grow
-                    {...TransitionProps}
-                    style={{ transformOrigin: placement === "bottom" ? "center top" : "center bottom" }}
-                  >
-                    <Paper>
-                      <ClickAwayListener onClickAway={handleClose}>
-                        <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                          <MenuItem onClick={handleClose}>
-                            <MuiLink
-                              color="textPrimary"
-                              underline="none"
-                              href="https://www.linkedin.com/in/leightonvanrooijen"
-                              target="_blank"
-                            >
-                              LinkedIn
-                            </MuiLink>
-                          </MenuItem>
-                          <MenuItem onClick={handleClose}>
-                            <MuiLink
-                              color="textPrimary"
-                              underline="none"
-                              href="https://github.com/leightonvanrooijen"
-                              target="_blank"
-                            >
-                              GitHub
-                            </MuiLink>
-                          </MenuItem>
-                          <MenuItem onClick={handleClose}>
-                            <MuiLink
-                              color="textPrimary"
-                              underline="none"
-                              href="mailto: leightonvanrooijen@gmail.com"
-                              target="_blank"
-                            >
-                              Email
-                            </MuiLink>
-                          </MenuItem>
-                          <MenuItem onClick={handleClose}>
-                            <MuiLink
-                              color="textPrimary"
-                              underline="none"
-                              href="https://www.instagram.com/leighton_van_rooijen/"
-                              target="_blank"
-                            >
-                              Instagram
-                            </MuiLink>
-                          </MenuItem>
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                  </Grow>
-                )}
-              </Popper>
-            </>
+            contactButton
           ) : (
             <Button color="inherit" className={classes.hideDesktopButtons} component={Link} to={barButton.route}>
               <Typography className={classes.linkButton}>{barButton.text}</Typography>

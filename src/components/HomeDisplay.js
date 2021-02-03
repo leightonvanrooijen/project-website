@@ -73,7 +73,7 @@ export default function HomeDisplay() {
   return (
     <WebsiteGrid size={6} align={"center"}>
       <Grid item>
-        <img className={classes.earImage} alt="ear listening"src={Ear} />
+        <img className={classes.earImage} alt="ear listening" src={Ear} />
       </Grid>
       <Grid item xs={12}>
         <Typography variant="h3">{data.entry.title}</Typography>
