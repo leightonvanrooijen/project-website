@@ -15,7 +15,7 @@ export default function WebsiteGrid(props) {
   
   return (
     <Grid container className={classes.root} >
-      <Grid container justify={props.align}  className={classes.container} spacing={1} xs={10} md={props.size || 8}>
+      <Grid container justify={props.align}  className={classes.container} spacing={props.spacing || 1} xs={10} md={props.size || 8}>
         {props.children}
       </Grid>
     </Grid>
