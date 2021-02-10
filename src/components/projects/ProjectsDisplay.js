@@ -25,8 +25,8 @@ const BLOG_Tile_QUERY = gql`
 const mapBlogTiles = (data) =>
   data.entries.map((entry) =>
     entry.title ? (
-      <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
-        <ProjectTile key={entry.id} entry={entry} />
+      <Grid item xs={12} sm={6} md={6} lg={4} xl={4} >
+        <ProjectTile key={entry.id} entry={entry}/>
       </Grid>
     ) : null
   );
@@ -40,6 +40,6 @@ export default function BlogPostDisplay() {
   const entries = mapBlogTiles(data);
 
   return (
-      <WebsiteGrid>{entries}</WebsiteGrid>
+      <WebsiteGrid spacing={3}>{entries}</WebsiteGrid>
   );
 }
