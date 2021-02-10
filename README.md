@@ -1,4 +1,4 @@
-# Social - Social Media APP
+# Project Website
 ## Live Site Link
 https://leightonv.co.nz
 
