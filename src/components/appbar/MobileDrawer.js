@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import { Link as MuiLink } from "@material-ui/core";
@@ -17,7 +17,6 @@ import PermContactCalendarIcon from "@material-ui/icons/PermContactCalendar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
-import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
@@ -73,16 +72,9 @@ const barButtons = [
   { text: "Contact", icon: <PermContactCalendarIcon />, route: "/contact" },
 ];
 
-const contactButtons = [
-  { text: "Home", icon: <HomeIcon />, route: "/" },
-  { text: "Projects", icon: <GavelIcon />, route: "/projects" },
-  { text: "Blog", icon: <CreateIcon />, route: "/blog" },
-  { text: "Contact", icon: <PermContactCalendarIcon />, route: "/contact" },
-];
 
 export default function MobileDrawer(props) {
   const classes = useStyles();
-  const [contactOpen, setContactOpen] = useState(false);
   // Controlls drawer positions. Change to true to activate
   const activePosition = props.position || "top";
   const [state, setState] = React.useState({
@@ -129,8 +121,6 @@ export default function MobileDrawer(props) {
     }
     setState({ ...state, [anchor]: open });
   };
-
-
 
   const buttonList = (anchor) => (
     <div
@@ -185,54 +175,55 @@ export default function MobileDrawer(props) {
                   id="menu-list-grow"
                   onKeyDown={handleListKeyDown}
                 >
-                  <MenuItem onClick={handleClose}>
-                    <MuiLink
-                      color="textPrimary"
-                      underline="none"
-                      href="https://www.linkedin.com/in/leightonvanrooijen"
-                      target="_blank"
-                    >
+                  {" "}
+                  <MuiLink
+                    color="textPrimary"
+                    underline="none"
+                    href="https://www.linkedin.com/in/leightonvanrooijen"
+                    target="_blank"
+                  >
+                    <MenuItem onClick={handleClose}>
                       <Tooltip title="LinkedIn">
                         <LinkedInIcon color="primary" />
                       </Tooltip>
-                    </MuiLink>
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                    <MuiLink
-                      color="textSecondary"
-                      underline="none"
-                      href="https://github.com/leightonvanrooijen"
-                      target="_blank"
-                    >
+                    </MenuItem>{" "}
+                  </MuiLink>
+                  <MuiLink
+                    color="textSecondary"
+                    underline="none"
+                    href="https://github.com/leightonvanrooijen"
+                    target="_blank"
+                  >
+                    <MenuItem onClick={handleClose}>
                       <Tooltip title="Github">
                         <GitHubIcon color="textSecondary" />
                       </Tooltip>
-                    </MuiLink>
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                    <MuiLink
-                      className={classes.linkButtonInsta}
-                      underline="none"
-                      href="mailto: leightonvanrooijen@gmail.com"
-                      target="_blank"
-                    >
+                    </MenuItem>
+                  </MuiLink>
+                  <MuiLink
+                    className={classes.linkButtonInsta}
+                    underline="none"
+                    href="mailto: leightonvanrooijen@gmail.com"
+                    target="_blank"
+                  >
+                    <MenuItem onClick={handleClose}>
                       <Tooltip title="Email">
                         <EmailIcon />
                       </Tooltip>
-                    </MuiLink>
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                    <MuiLink
-                      color="secondary"
-                      underline="none"
-                      href="https://www.instagram.com/leighton_van_rooijen/"
-                      target="_blank"
-                    >
+                    </MenuItem>
+                  </MuiLink>
+                  <MuiLink
+                    color="secondary"
+                    underline="none"
+                    href="https://www.instagram.com/leighton_van_rooijen/"
+                    target="_blank"
+                  >
+                    <MenuItem onClick={handleClose}>
                       <Tooltip title="Instagram">
                         <InstagramIcon />
                       </Tooltip>
-                    </MuiLink>
-                  </MenuItem>
+                    </MenuItem>
+                  </MuiLink>
                 </MenuList>
               </ClickAwayListener>
             </Paper>
